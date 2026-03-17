@@ -1,0 +1,113 @@
+{
+  "Header": {
+    "navHow": "How it works",
+    "navApps": "Apps",
+    "navRegion": "Region",
+    "navContact": "Contact"
+  },
+  "Hero": {
+    "badge": "One network for modern supply distribution",
+    "title1": "You produce.",
+    "title2": "Bananay delivers.",
+    "subtitle": "Bananay connects producers, truck drivers, local distribution hubs, couriers and delivery points into one coordinated delivery network across Greater Sochi.",
+    "ctaDemo": "Request demo",
+    "ctaHow": "See how it works",
+    "ctaJoin": "Join the network",
+    "promiseTitle": "Main business promise",
+    "promiseHead": "Producers no longer have to build their own delivery department.",
+    "promiseText": "No need to keep a private fleet, hire in-house drivers or manually coordinate movement from factory to store.",
+    "regionTitle": "Launch region",
+    "regionHead": "Greater Sochi MVP",
+    "regionText": "Map block appears below on the landing page to show the first active region."
+  },
+  "Value": {
+    "label": "Why this platform exists",
+    "title": "Logistics without building your own fleet and operations team.",
+    "text": "Producers focus on products; Bananay handles the movement of goods through a distributed delivery network.",
+    "items": [
+      "No need to keep your own drivers and trucks",
+      "One connected delivery chain from producer to point of sale",
+      "Built for supply distribution, not parcel shipping",
+      "Transparent stages for every participant in the network"
+    ]
+  },
+  "HowItWorks": {
+    "label": "How it works",
+    "title": "One network. Five roles. One delivery chain.",
+    "step": "Step"
+  },
+  "Steps": {
+    "producer": { "title": "Producer", "text": "Creates a shipment request and no longer needs to manage a private fleet or delivery operations alone." },
+    "truck": { "title": "Truck", "text": "Moves larger cargo batches from producers to the nearest distribution point." },
+    "hub": { "title": "Hub", "text": "Receives, scans and redistributes goods. A hub can be a smaller local facility, not only a huge warehouse." },
+    "courier": { "title": "Courier", "text": "Handles the final route to stores, cafés and restaurants with smaller vehicles and batches." },
+    "tracking": { "title": "Tracking", "text": "Lets delivery points see what stage their order is currently in." }
+  },
+  "Apps": {
+    "label": "Apps and entry points",
+    "title": "Five apps, all connected to one logistics service.",
+    "text": "One platform with different roles and direct links into each application.",
+    "producer": { "label": "For manufacturers", "title": "Producer App", "text": "Create shipments and stop worrying about building your own delivery operations." },
+    "truck": { "label": "For long-haul movement", "title": "Truck Driver App", "text": "Move goods from producers to hubs across the launch region." },
+    "hub": { "label": "For local facilities", "title": "Distribution Hub App", "text": "Receive, sort and prepare shipments for the next stage in the chain." },
+    "courier": { "label": "For last-mile delivery", "title": "Courier App", "text": "Deliver smaller batches to stores, cafés and restaurants." },
+    "tracking": { "label": "For delivery points", "title": "Tracking App", "text": "Monitor order status and see what stage the delivery is in right now." }
+  },
+  "Region": {
+    "label": "Launch region",
+    "title": "Starting with Greater Sochi.",
+    "text": "The first network is being built here. The MVP has a real geographical anchor.",
+    "suggested": "Suggested locations",
+    "cities": {
+      "sochi": "Sochi",
+      "adler": "Adler",
+      "dagomys": "Dagomys",
+      "khosta": "Khosta",
+      "krasnayaPolyana": "Krasnaya Polyana"
+    }
+  },
+  "CTA": {
+    "label": "Get started",
+    "title": "Build your delivery chain without building it alone.",
+    "text": "Producers, hubs, drivers, couriers and delivery points can all become part of one coordinated network.",
+    "demo": "Request platform demo",
+    "startShipping": "Start shipping",
+    "partnership": "Discuss partnership"
+  },
+  "Footer": {
+    "tagline": "One network for supply distribution. Producers, drivers, hubs, couriers — connected.",
+    "copyright": "© Bananay. All rights reserved.",
+    "navHow": "How it works",
+    "navApps": "Apps",
+    "navRegion": "Region",
+    "navContact": "Contact"
+  },
+  "Map": {
+    "loading": "Loading map…",
+    "error": "Could not load delivery points.",
+    "points": "{count} points",
+    "point": "1 point",
+    "clickDetails": "Click for details",
+    "deliveryPoint": "Delivery point"
+  },
+  "PartnershipModal": {
+    "title": "Join the Bananay network",
+    "intro": "Leave a quick request and we'll get back to you as we expand the network in your region.",
+    "close": "Close",
+    "formTitle": "One form for all roles",
+    "formIntro": "This form is for everyone — hubs, drivers, couriers, logistics partners or anyone interested in supporting the Bananay network.",
+    "name": "Full name",
+    "phone": "Phone number",
+    "email": "Email (optional)",
+    "city": "City / region",
+    "participate": "How do you want to participate? (courier, hub, driver, logistics partner...)",
+    "details": "Tell us briefly about your vehicle, facility, route, company or partnership interest",
+    "send": "Send request",
+    "cancel": "Cancel"
+  },
+  "UnderConstruction": {
+    "title": "Under construction",
+    "text": "This section is being developed. Please check back later.",
+    "back": "Back to home"
+  }
+}
