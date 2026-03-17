@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { RegionMapClient } from '@/app/components/RegionMapClient';
 import { PartnershipModal } from '@/app/components/PartnershipModal';
+import { useConfig } from '@/app/lib/useConfig';
 
 const stepKeys = ['producer', 'truck', 'hub', 'courier', 'tracking'];
 
@@ -90,6 +91,7 @@ const appAccents = ['blue', 'orange', 'purple', 'green', 'slate'];
 
 export default function HomePageContent() {
   const locale = useLocale();
+  const { config } = useConfig();
   const [partnerModalOpen, setPartnerModalOpen] = useState(false);
   const tHero = useTranslations('Hero');
   const tValue = useTranslations('Value');
@@ -229,11 +231,11 @@ export default function HomePageContent() {
             const accent = appAccents[i];
             const appUrl =
               {
-                producer: process.env.NEXT_PUBLIC_APP_PRODUCER_URL,
-                truck: process.env.NEXT_PUBLIC_APP_TRUCK_URL,
-                hub: process.env.NEXT_PUBLIC_APP_HUB_URL,
-                courier: process.env.NEXT_PUBLIC_APP_COURIER_URL,
-                tracking: process.env.NEXT_PUBLIC_APP_TRACKING_URL,
+                producer: config.appProducerUrl,
+                truck: config.appTruckUrl,
+                hub: config.appHubUrl,
+                courier: config.appCourierUrl,
+                tracking: config.appTrackingUrl,
               }[key];
             const appHref = appUrl?.trim() ? appUrl : `/${locale}/under-construction`;
             const borderClass = {
@@ -293,7 +295,7 @@ export default function HomePageContent() {
 
           <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
             <div className="aspect-[4/3] rounded-[1.5rem] overflow-hidden">
-              <RegionMapClient height="100%" className="h-full" />
+              <RegionMapClient height="100%" className="h-full" apiUrl={config.apiUrl} />
             </div>
           </div>
         </div>
@@ -308,7 +310,7 @@ export default function HomePageContent() {
             <p className="mt-5 text-lg leading-8 text-slate-300">{tCTA('text')}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href={process.env.NEXT_PUBLIC_APP_PRODUCER_URL?.trim() || `/${locale}/under-construction`}
+                href={config.appProducerUrl?.trim() || `/${locale}/under-construction`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-2xl bg-orange-500 px-6 py-3 text-center font-medium text-white"

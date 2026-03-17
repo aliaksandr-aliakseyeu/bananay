@@ -7,6 +7,6 @@ const RegionMap = dynamic(
   { ssr: false, loading: () => <div className="flex h-full min-h-[320px] items-center justify-center rounded-2xl bg-slate-100 text-slate-500"><span className="text-sm">Loading map…</span></div> }
 );
 
-export function RegionMapClient({ height = '100%', className = '' }) {
-  return <RegionMap height={height} className={className} />;
+export function RegionMapClient({ height = '100%', className = '', apiUrl = '' }) {
+  return <RegionMap height={height} className={className} apiUrl={apiUrl} />;
 }
