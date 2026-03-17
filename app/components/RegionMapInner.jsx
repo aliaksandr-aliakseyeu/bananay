@@ -69,14 +69,14 @@ function createClusterCustomIcon(cluster) {
   });
 }
 
-export default function RegionMapInner({ height = '100%', className = '' }) {
+export default function RegionMapInner({ height = '100%', className = '', apiUrl = '' }) {
   const t = useTranslations('Map');
   const [points, setPoints] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getDeliveryPoints()
+    getDeliveryPoints(apiUrl)
       .then((list) => {
         const active = (list || []).filter(
           (p) => p.is_active && p.location?.coordinates?.length === 2
@@ -85,7 +85,7 @@ export default function RegionMapInner({ height = '100%', className = '' }) {
       })
       .catch(() => setError(true))
       .finally(() => setLoading(false));
-  }, []);
+  }, [apiUrl]);
 
   if (loading) {
     return (

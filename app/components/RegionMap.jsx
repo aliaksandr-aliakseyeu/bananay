@@ -11,6 +11,6 @@ const RegionMapInner = dynamic(() => import('./RegionMapInner'), {
   ),
 });
 
-export function RegionMap({ height = '100%', className = '' }) {
-  return <RegionMapInner height={height} className={className} />;
+export function RegionMap({ height = '100%', className = '', apiUrl = '' }) {
+  return <RegionMapInner height={height} className={className} apiUrl={apiUrl} />;
 }
