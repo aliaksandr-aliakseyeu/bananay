@@ -95,15 +95,19 @@ export default function HomePageContent() {
   const [partnerModalOpen, setPartnerModalOpen] = useState(false);
   const tHero = useTranslations('Hero');
   const tValue = useTranslations('Value');
+  const tForWhom = useTranslations('ForWhom');
+  const tBenefits = useTranslations('Benefits');
   const tHow = useTranslations('HowItWorks');
   const tSteps = useTranslations('Steps');
   const tApps = useTranslations('Apps');
   const tRegion = useTranslations('Region');
   const tCTA = useTranslations('CTA');
 
+  const benefitKeys = ['fromOneUnit', 'fixedPrice', 'strictSchedule', 'onTimeDelivery', 'cargoSafety', 'addressSorting', 'electronicDocs', 'noIntermediaries'];
+
   return (
     <div className="min-h-screen bg-white text-slate-900">
-      <section className="relative overflow-hidden">
+      <section id="who-we-are" className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/hero_bg.png"
@@ -121,16 +125,14 @@ export default function HomePageContent() {
           </div>
         </div>
 
-        <div className="relative mx-auto grid min-h-[58vh] max-w-7xl gap-10 px-6 py-10 text-white md:grid-cols-[1.1fr_0.9fr] md:items-start md:py-12">
+        <div className="relative mx-auto grid min-h-[60vh] max-w-7xl gap-10 px-6 py-10 text-white md:grid-cols-[1.1fr_0.9fr] md:items-start md:py-14">
           <div className="max-w-3xl">
             <div className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-white/80 backdrop-blur-sm">
               {tHero('badge')}
             </div>
 
-            <h1 className="mt-2 text-5xl font-semibold leading-tight tracking-tight md:text-7xl">
-              {tHero('title1')}
-              <br />
-              {tHero('title2')}
+            <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
+              {tHero('title')}
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/90 md:text-xl">
@@ -139,21 +141,21 @@ export default function HomePageContent() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="#how-it-works"
+                href="#producer-app"
                 className="rounded-2xl bg-orange-500 px-6 py-3 text-center text-base font-semibold text-white shadow-lg shadow-orange-950/20"
               >
-                {tHero('ctaHow')}
+                {tHero('ctaCityPrice')}
               </a>
               <a
-                href="#apps"
+                href="#benefits"
                 className="rounded-2xl border border-white/30 bg-white/10 px-6 py-3 text-center text-base font-medium text-white backdrop-blur-sm"
               >
-                {tHero('ctaJoin')}
+                {tHero('ctaWhy')}
               </a>
             </div>
           </div>
 
-          <div className="grid gap-4 pt-[3.5rem] md:pt-[3.5rem]">
+          <div className="grid gap-4 pt-8 md:pt-14">
             <div className="rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur-md">
               <div className="text-sm font-medium text-white/70">{tHero('promiseTitle')}</div>
               <div className="mt-3 text-2xl font-semibold tracking-tight">{tHero('promiseHead')}</div>
@@ -169,25 +171,103 @@ export default function HomePageContent() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20">
-        <div className="mx-auto max-w-7xl px-6">
-        <div className="max-w-3xl">
-          <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{tValue('label')}</div>
-          <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">{tValue('title')}</h2>
-          <p className="mt-5 text-lg leading-8 text-slate-600">{tValue('text')}</p>
-        </div>
-
-        <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {[0, 1, 2, 3].map((i) => (
-            <div key={i} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <div className="text-base font-medium leading-7 text-slate-800">{tValue(`items.${i}`)}</div>
+      <section id="for-whom" className="bg-slate-50 py-14">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-[1.05fr_0.95fr] md:items-start">
+          <div>
+            <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{tForWhom('label')}</div>
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">{tForWhom('title')}</h2>
+            <p className="mt-6 text-lg leading-8 text-slate-600">{tForWhom('text')}</p>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{tForWhom('text2')}</p>
+            <p className="mt-4 text-sm leading-6 text-slate-500">{tForWhom('text3')}</p>
+            <div className="mt-8">
+              <a
+                href="#producer-app"
+                className="inline-flex rounded-2xl bg-orange-500 px-6 py-3 text-base font-semibold text-white"
+              >
+                {tForWhom('cta')}
+              </a>
             </div>
-          ))}
-        </div>
+          </div>
+          <div className="relative pt-8 md:pt-[2.75rem]">
+            <div className="absolute -right-8 -top-8 h-64 w-64 rounded-full bg-amber-200/30 blur-3xl" aria-hidden />
+            <div className="relative grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl bg-white p-6 shadow-md">
+                <Image src="/box.png" alt="" width={96} height={96} className="h-24 w-24 object-contain" />
+                <div className="mt-4 text-lg font-semibold text-slate-900">{tForWhom('producers')}</div>
+                <div className="mt-1 text-sm text-slate-500">{tForWhom('producersSubtitle')}</div>
+              </div>
+              <div className="rounded-2xl bg-white p-6 shadow-md">
+                <Image src="/truck.png" alt="" width={96} height={96} className="h-24 w-24 object-contain" />
+                <div className="mt-4 text-lg font-semibold text-slate-900">{tForWhom('drivers')}</div>
+                <div className="mt-1 text-sm text-slate-500">{tForWhom('driversSubtitle')}</div>
+              </div>
+              <div className="rounded-2xl bg-white p-6 shadow-md">
+                <Image src="/warhouse.png" alt="" width={96} height={96} className="h-24 w-24 object-contain" />
+                <div className="mt-4 text-lg font-semibold text-slate-900">{tForWhom('warehouseOwners')}</div>
+                <div className="mt-1 text-sm text-slate-500">{tForWhom('warehouseOwnersSubtitle')}</div>
+              </div>
+              <div className="rounded-2xl bg-white p-6 shadow-md">
+                <Image src="/warh_wor.png" alt="" width={96} height={96} className="h-24 w-24 object-contain" />
+                <div className="mt-4 text-lg font-semibold text-slate-900">{tForWhom('warehouseWorkers')}</div>
+                <div className="mt-1 text-sm text-slate-500">{tForWhom('warehouseWorkersSubtitle')}</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="how-it-works" className="bg-white py-20">
+      <section id="benefits" className="bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-12">
+          <div className="max-w-3xl">
+            <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{tBenefits('label')}</div>
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">{tBenefits('title')}</h2>
+          </div>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {benefitKeys.map((key) => (
+              <div key={key} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div className="text-lg font-semibold text-slate-900">{tBenefits(`items.${key}.title`)}</div>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{tBenefits(`items.${key}.text`)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="value" className="relative bg-slate-50 py-14">
+        <div className="absolute inset-0">
+          <div className="absolute left-1/2 top-0 bottom-0 w-full max-w-7xl -translate-x-1/2 overflow-hidden px-6">
+            <Image
+              src="/Img1.png"
+              alt=""
+              fill
+              className="object-cover object-right translate-x-[120px]"
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              priority={false}
+            />
+            <div
+              className="absolute inset-0 bg-[linear-gradient(to_right,rgb(248_250_252)_0%,rgb(248_250_252)_35%,transparent_48%,transparent_62%,rgb(248_250_252)_100%)]"
+              aria-hidden
+            />
+          </div>
+        </div>
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div className="max-w-3xl">
+            <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{tValue('label')}</div>
+            <h2 className="mt-3 text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">{tValue('title')}</h2>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">{tValue('text')}</p>
+            <div className="mt-12 grid gap-4 sm:grid-cols-2">
+              {[0, 1, 2, 3].map((i) => (
+                <div key={i} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <div className="text-base font-medium leading-7 text-slate-800">{tValue(`items.${i}`)}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="hidden lg:block" />
+        </div>
+      </section>
+
+      <section id="how-it-works" className="bg-white py-14">
         <div className="mx-auto max-w-7xl px-6">
           <div className="max-w-3xl">
             <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{tHow('label')}</div>
@@ -218,7 +298,7 @@ export default function HomePageContent() {
         </div>
       </section>
 
-      <section id="apps" className="bg-slate-50 py-20">
+      <section id="apps" className="bg-slate-50 py-14">
         <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl">
           <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{tApps('label')}</div>
@@ -258,6 +338,7 @@ export default function HomePageContent() {
                 href={appHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                id={key === 'producer' ? 'producer-app' : undefined}
                 className={`group block rounded-3xl border border-slate-200 border-t-4 bg-white p-6 shadow-sm transition duration-200 hover:shadow-lg ${borderClass}`}
               >
                 <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${iconBoxClass}`}>
@@ -276,21 +357,20 @@ export default function HomePageContent() {
       </section>
 
       <section id="region" className="border-y border-slate-200 bg-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-[0.9fr_1.1fr] md:items-start">
           <div>
             <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{tRegion('label')}</div>
             <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">{tRegion('title')}</h2>
             <p className="mt-5 text-lg leading-8 text-slate-600">{tRegion('text')}</p>
-            <div className="mt-6 rounded-2xl bg-white p-5 shadow-sm">
-              <div className="text-sm font-medium text-slate-500">{tRegion('suggested')}</div>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {['sochi', 'adler', 'dagomys', 'khosta', 'krasnayaPolyana'].map((cityKey) => (
-                  <span key={cityKey} className="rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-700">
-                    {tRegion(`cities.${cityKey}`)}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <p className="mt-6 text-lg font-medium text-slate-700">{tRegion('pointsCount')}</p>
+            <a
+              href={config.appProducerUrl?.trim() || `/${locale}/under-construction`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex rounded-2xl bg-orange-500 px-6 py-3 text-base font-semibold text-white"
+            >
+              {tRegion('openProducerApp')}
+            </a>
           </div>
 
           <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
@@ -301,7 +381,7 @@ export default function HomePageContent() {
         </div>
       </section>
 
-      <section id="cta" className="bg-slate-50 py-20">
+      <section id="cta" className="bg-slate-50 py-14">
         <div className="mx-auto max-w-7xl px-6">
         <div className="rounded-[2rem] bg-slate-900 px-8 py-12 text-white md:px-12 md:py-16">
           <div className="max-w-3xl">
@@ -315,7 +395,7 @@ export default function HomePageContent() {
                 rel="noopener noreferrer"
                 className="rounded-2xl bg-orange-500 px-6 py-3 text-center font-medium text-white"
               >
-                {tCTA('startShipping')}
+                {tCTA('learnMore')}
               </a>
               <button
                 type="button"
