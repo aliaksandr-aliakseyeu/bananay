@@ -25,7 +25,11 @@ export function Header() {
   const t = useTranslations('Header');
 
   const navLinks = [
-    { href: '#how-it-works', label: t('navHow') },
+    { href: '#who-we-are', label: t('navAbout') },
+    { href: '#for-whom', label: t('navForWhom') },
+    { href: '#benefits', label: t('navWhyBananay') },
+    { href: '#value', label: t('navWhyPlatform') },
+    { href: '#how-it-works', label: t('navHowItWorks') },
     { href: '#apps', label: t('navApps') },
     { href: '#region', label: t('navRegion') },
     { href: '#cta', label: t('navContact') },
@@ -49,9 +53,9 @@ export function Header() {
         <div className="flex items-center gap-4 md:gap-6">
           <nav className="hidden items-center gap-6 text-sm text-gray-600 md:flex">
             {navLinks.map(({ href, label }) => (
-              <a key={href} href={href} className="font-medium text-gray-700 hover:text-gray-900">
+              <Link key={href} href={`/${href}`} className="font-medium text-gray-700 hover:text-gray-900">
                 {label}
-              </a>
+              </Link>
             ))}
           </nav>
           <LanguageSwitcher />
@@ -70,14 +74,14 @@ export function Header() {
         <div className="border-t border-gray-200 bg-white/95 backdrop-blur md:hidden supports-[backdrop-filter]:bg-white/60">
           <div className="space-y-1 px-4 py-4">
             {navLinks.map(({ href, label }) => (
-              <a
+              <Link
                 key={href}
-                href={href}
+                href={`/${href}`}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
               >
                 {label}
-              </a>
+              </Link>
             ))}
             <LanguageSwitcher />
           </div>

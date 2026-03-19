@@ -76,6 +76,11 @@ export default function RegionMapInner({ height = '100%', className = '', apiUrl
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (!apiUrl?.trim()) {
+      setPoints([]);
+      setLoading(false);
+      return;
+    }
     getDeliveryPoints(apiUrl)
       .then((list) => {
         const active = (list || []).filter(
