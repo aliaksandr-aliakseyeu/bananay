@@ -237,7 +237,7 @@ export default function HomePageContent() {
         <div className="absolute inset-0">
           <div className="absolute left-1/2 top-0 bottom-0 w-full max-w-7xl -translate-x-1/2 overflow-hidden px-6">
             <Image
-              src="/Img1.png"
+              src="/img1.png"
               alt=""
               fill
               className="object-cover object-right translate-x-[120px]"
