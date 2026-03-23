@@ -1,17 +1,47 @@
 {
   "Header": {
+    "menuLabel": "Menu",
     "navAbout": "About",
-    "navForWhom": "For whom",
-    "navWhyBananay": "Why Bananay",
-    "navWhyPlatform": "Why this platform",
-    "navHowItWorks": "How it works",
-    "navApps": "Apps",
     "navRegion": "Region",
-    "navContact": "Contact"
+    "loginButton": "Log in",
+    "megaColInfo": "About us",
+    "megaColPlatforms": "Our platforms",
+    "navForWhom": "Who is Bananay for?",
+    "navForWhomDesc": "Producers, drivers, hubs and couriers",
+    "navBenefits": "Why Bananay?",
+    "navBenefitsDesc": "Practical advantages for daily delivery",
+    "navWhyPlatform": "Why this platform",
+    "navWhyPlatformDesc": "Logistics without your own fleet or operations team",
+    "navHowItWorks": "How it works",
+    "navHowItWorksDesc": "Five roles in one delivery chain",
+    "navApps": "Apps & access",
+    "navAppsDesc": "Five apps for network participants",
+    "navAboutUs": "About us",
+    "navAboutUsDesc": "Mission and essence of the Bananay platform",
+    "navProducer": "Producer",
+    "navProducerDesc": "Create delivery orders",
+    "navDriver": "Driver",
+    "navDriverDesc": "Transport goods between cities",
+    "navHub": "Distribution Hub",
+    "navHubDesc": "Receive and sort cargo",
+    "navCourier": "Courier",
+    "navCourierDesc": "Deliver on the last mile",
+    "navDeliveryPoint": "Delivery Point",
+    "navDeliveryPointDesc": "Track order status",
+    "roles": {
+      "producer": "Producer",
+      "driver": "Driver",
+      "hub": "Distribution Hub",
+      "courier": "Courier",
+      "deliveryPoint": "Delivery Point"
+    }
   },
   "Hero": {
     "badge": "Food distribution network · Greater Sochi MVP",
-    "title": "Bananay — a new era of food delivery from producers to their customers.",
+    "titleLine1": "One product. One price.",
+    "titleLine2": "Any destination.",
+    "cta": "Calculate delivery",
+    "ctaHint": "Calculate the cost of delivering 1 item in 30 seconds",
     "subtitle": "Bananay connects producers, importers, drivers, local distribution hubs, couriers and delivery points into one coordinated logistics network with fixed pricing and transparent stages.",
     "ctaCityPrice": "Your delivery city and price",
     "ctaWhy": "Why choose Bananay",
@@ -21,6 +51,49 @@
     "regionTitle": "Launch region",
     "regionHead": "Currently active: Greater Sochi",
     "regionText": "Map and active delivery points are shown below on the landing page."
+  },
+  "QuickStart": {
+    "title": "How it works",
+    "steps": [
+      {
+        "title": "Request",
+        "text": "You enter details"
+      },
+      {
+        "title": "Pricing",
+        "text": "The fixed cost is shown"
+      },
+      {
+        "title": "Delivery",
+        "text": "We coordinate route and delivery"
+      }
+    ],
+    "cta": "Calculate delivery",
+    "ctaHint": "Find out the cost of delivering 1 item in 30 seconds"
+  },
+  "Economics": {
+    "title": "Focus on your product.",
+    "titleAccent": "We handle the logistics.",
+    "items": [
+      {
+        "title": "No need for your own drivers",
+        "text": "Deliveries are handled by verified network partners — you just create an order."
+      },
+      {
+        "title": "No need for a vehicle fleet",
+        "text": "Transport, routes and loading — that's our responsibility."
+      },
+      {
+        "title": "No need for an in-house logistics manager",
+        "text": "The system automatically assigns orders, builds routes and tracks delivery."
+      }
+    ]
+  },
+  "MapBlock": {
+    "label": "We deliver your product to any point in the city",
+    "title": "Already delivering to 6000+ points in Sochi",
+    "subtitle": "Operating daily · real delivery routes",
+    "cta": "Find out delivery cost"
   },
   "Value": {
     "label": "Why this platform exists",
@@ -118,10 +191,11 @@
     "appDriver": "Driver app",
     "appHub": "Warehouse app (RC)",
     "appCourier": "Courier app (last mile)",
-    "navTitle": "Navigation",
+    "navTitle": "About us",
     "navAbout": "About",
     "navForWhom": "For whom",
     "navWhyBananay": "Why Bananay",
+    "navWhyPlatform": "Why a platform is needed",
     "navHowItWorks": "How it works",
     "navApps": "Apps",
     "navRegion": "Region",
@@ -130,7 +204,7 @@
     "email": "hello@bananay.pro",
     "phone": "+7 918 384 2676",
     "location": "Sochi / Poland",
-    "requestDemo": "Request a demo",
+    "partnership": "Discuss partnership",
     "copyright": "© 2026 Bananay. Built for regional food logistics.",
     "bottomTagline": "Bananay Regional distribution infrastructure."
   },

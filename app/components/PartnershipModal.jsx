@@ -31,12 +31,7 @@ export function PartnershipModal({ isOpen, onClose }) {
           <p className="mt-2 text-sm text-slate-600">{t('intro')}</p>
         </div>
 
-        <div className="mt-8 rounded-3xl bg-slate-50 p-6">
-          <div className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">{t('formTitle')}</div>
-          <p className="mt-3 text-sm leading-6 text-slate-600">{t('formIntro')}</p>
-        </div>
-
-        <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+        <form className="mt-8 space-y-4" onSubmit={handleSubmit}>
           <div className="grid gap-4 md:grid-cols-2">
             <input
               type="text"
