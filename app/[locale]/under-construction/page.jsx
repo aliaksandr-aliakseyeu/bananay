@@ -11,8 +11,8 @@ export default async function UnderConstructionPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex flex-1 w-full flex-col items-center justify-center bg-gray-100 px-6 py-20">
-        <div className="text-center">
+      <main className="flex w-full flex-1 flex-col justify-center bg-white px-6 py-20">
+        <div className="mx-auto w-full max-w-4xl bg-white px-8 py-10 md:px-12 md:py-12">
           <h1 className="text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
             {t('title')}
           </h1>
