@@ -2,11 +2,19 @@ import { Header } from '@/app/components/Header';
 import { Footer } from '@/app/components/Footer';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { routing } from '@/i18n/routing';
+import { notFound } from 'next/navigation';
 
 export const dynamic = 'force-static';
 
-export default async function UnderConstructionPage() {
-  const t = await getTranslations('UnderConstruction');
+export default async function UnderConstructionPage({ params }) {
+  const { locale } = await params;
+
+  if (!routing.locales.includes(locale)) {
+    notFound();
+  }
+
+  const t = await getTranslations({ locale, namespace: 'UnderConstruction' });
 
   return (
     <div className="flex min-h-screen flex-col">
