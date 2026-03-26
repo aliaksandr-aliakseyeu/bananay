@@ -85,7 +85,7 @@ export default function HowItWorksContent() {
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-slate-50">
+      <section className="bg-slate-50">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="mb-12 max-w-2xl">
             <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{t('processLabel')}</div>
@@ -119,7 +119,7 @@ export default function HowItWorksContent() {
         </div>
       </section>
 
-      <section className="border-t border-slate-200 bg-white">
+      <section className="bg-white">
         <div className="mx-auto max-w-7xl px-6 py-20">
           <div className="max-w-4xl py-2">
             <div className="mb-4 text-sm uppercase tracking-[0.2em] text-slate-500">{t('nextStepLabel')}</div>
