@@ -30,10 +30,10 @@ export function Footer() {
   const navLinks = [
     { href: '/for-whom', label: t('navForWhom') },
     { href: '/benefits', label: t('navWhyBananay') },
-    { href: '/why-platform', label: t('navWhyPlatform') },
+    { href: '/under-construction', label: t('navWhyPlatform') },
     { href: '/how-it-works', label: t('navHowItWorks') },
-    { href: '/apps', label: t('navApps') },
-    { href: '/about', label: t('navAbout') },
+    { href: '/under-construction', label: t('navApps') },
+    { href: '/under-construction', label: t('navAbout') },
   ];
 
   return (
@@ -105,7 +105,7 @@ export function Footer() {
             <h3 className="text-xl font-semibold tracking-tight text-slate-900">{t('navTitle')}</h3>
             <ul className="mt-4 space-y-2.5">
               {navLinks.map(({ href, label }) => (
-                <li key={href}>
+                <li key={`${href}-${label}`}>
                   <Link href={href} className="text-[15px] leading-6 text-slate-600 hover:text-slate-900">
                     {label}
                   </Link>
