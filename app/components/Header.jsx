@@ -83,10 +83,10 @@ export function Header() {
   }, []);
 
   const infoLinks = [
-    { label: t('navForWhom'), desc: t('navForWhomDesc'), href: '/under-construction' },
-    { label: t('navBenefits'), desc: t('navBenefitsDesc'), href: '/under-construction' },
+    { label: t('navForWhom'), desc: t('navForWhomDesc'), href: '/for-whom' },
+    { label: t('navBenefits'), desc: t('navBenefitsDesc'), href: '/benefits' },
     { label: t('navWhyPlatform'), desc: t('navWhyPlatformDesc'), href: '/under-construction' },
-    { label: t('navHowItWorks'), desc: t('navHowItWorksDesc'), href: '/under-construction' },
+    { label: t('navHowItWorks'), desc: t('navHowItWorksDesc'), href: '/how-it-works' },
     { label: t('navApps'), desc: t('navAppsDesc'), href: '/under-construction' },
     { label: t('navAboutUs'), desc: t('navAboutUsDesc'), href: '/under-construction' },
   ];
