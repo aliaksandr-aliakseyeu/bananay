@@ -1,19 +1,21 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { RegionMapClient } from '@/app/components/RegionMapClient';
+import { TrialDeliveryModal } from '@/app/components/TrialDeliveryModal';
 import { useConfig } from '@/app/lib/useConfig';
 
 export default function HomePageContent() {
   const locale = useLocale();
   const { config } = useConfig();
+  const [trialModalOpen, setTrialModalOpen] = useState(false);
   const tHero = useTranslations('Hero');
   const tQuickStart = useTranslations('QuickStart');
   const tEconomics = useTranslations('Economics');
-  const tValue = useTranslations('Value');
   const tMapBlock = useTranslations('MapBlock');
-  const valueItems = tValue.raw('items');
+  const economicsItems = tEconomics.raw('items');
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
@@ -31,9 +33,9 @@ export default function HomePageContent() {
         </div>
 
         <div className="relative px-6 text-center text-white">
-          <h1 className="text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
+          <h1 className="text-4xl/[1.12] font-semibold tracking-tight md:text-5xl/[1.12] lg:text-6xl/[1.12]">
             <span className="block">{tHero('titleLine1')}</span>
-            <span className="block">{tHero('titleLine2')}</span>
+            <span className="block md:mt-1.5">{tHero('titleLine2')}</span>
           </h1>
           <div className="mt-10 flex flex-col items-center gap-3">
             <a
@@ -44,7 +46,6 @@ export default function HomePageContent() {
             >
               {tHero('cta')}
             </a>
-            <p className="text-sm font-medium text-white/80 md:text-base">{tHero('ctaHint')}</p>
           </div>
         </div>
       </section>
@@ -88,31 +89,40 @@ export default function HomePageContent() {
               sizes="(max-width: 1280px) 100vw, 1280px"
             />
             <div
-              className="absolute inset-0 bg-[linear-gradient(to_right,rgb(248_250_252)_0%,rgb(248_250_252)_34%,rgba(248,250,252,0.55)_52%,rgba(248,250,252,0.18)_66%,rgb(248_250_252)_100%)]"
+              className="absolute inset-0 bg-[linear-gradient(to_right,rgb(248_250_252)_0%,rgb(248_250_252)_46%,rgba(248,250,252,0.72)_58%,rgba(248,250,252,0.26)_70%,rgb(248_250_252)_100%)]"
               aria-hidden
             />
           </div>
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-6">
-          <div className="mb-8 max-w-3xl">
+          <div className="mb-8 max-w-2xl">
             <h2 className="section-heading">
               <span className="block">{tEconomics('title')}</span>
               <span className="mt-1 block">{tEconomics('titleAccent')}</span>
             </h2>
           </div>
-          <div className="grid max-w-3xl gap-2.5">
-            {valueItems.map((item, i) => (
+          <div className="grid max-w-2xl gap-2.5">
+            {economicsItems.map((item, i) => (
               <div key={i} className="flex items-start gap-3 py-1">
                 <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-orange-200 text-orange-600 shadow-[0_5px_14px_rgba(251,146,60,0.22)]">
                   <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
-                <div className="text-[1.4rem] font-semibold leading-[1.8] tracking-tight text-slate-900">
-                  {item}
+                <div className="max-w-[34rem] text-[1.35rem] font-semibold leading-[1.7] tracking-tight text-slate-900">
+                  {typeof item === 'string' ? item : item.title}
                 </div>
               </div>
             ))}
+          </div>
+          <div className="mt-12 max-w-2xl">
+            <button
+              type="button"
+              onClick={() => setTrialModalOpen(true)}
+              className="btn-primary inline-flex min-w-[18rem] items-center justify-center"
+            >
+              {tEconomics('cta')}
+            </button>
           </div>
         </div>
       </section>
@@ -141,6 +151,13 @@ export default function HomePageContent() {
           </div>
         </div>
       </section>
+
+      <TrialDeliveryModal
+        isOpen={trialModalOpen}
+        onClose={() => setTrialModalOpen(false)}
+        apiUrl={config.apiUrl}
+        tEconomics={tEconomics}
+      />
 
     </div>
   );

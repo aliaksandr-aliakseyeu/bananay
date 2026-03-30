@@ -1,5 +1,3 @@
-import { Header } from '@/app/components/Header';
-import { Footer } from '@/app/components/Footer';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
@@ -17,23 +15,19 @@ export default async function UnderConstructionPage({ params }) {
   const t = await getTranslations({ locale, namespace: 'UnderConstruction' });
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <Header />
-      <main className="flex w-full flex-1 flex-col justify-center bg-white px-6 py-20">
-        <div className="mx-auto w-full max-w-4xl bg-white px-8 py-10 md:px-12 md:py-12">
-          <h1 className="text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
-            {t('title')}
-          </h1>
-          <p className="mt-4 text-lg text-slate-600">{t('text')}</p>
-          <Link
-            href="/"
-            className="mt-8 inline-block rounded-2xl bg-orange-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-orange-950/20"
-          >
-            {t('back')}
-          </Link>
-        </div>
-      </main>
-      <Footer />
-    </div>
+    <main className="flex w-full min-h-screen flex-col justify-center bg-white px-6 py-20">
+      <div className="mx-auto w-full max-w-4xl bg-white px-8 py-10 md:px-12 md:py-12">
+        <h1 className="text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
+          {t('title')}
+        </h1>
+        <p className="mt-4 text-lg text-slate-600">{t('text')}</p>
+        <Link
+          href="/"
+          className="mt-8 inline-block rounded-2xl bg-orange-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-orange-950/20"
+        >
+          {t('back')}
+        </Link>
+      </div>
+    </main>
   );
 }
