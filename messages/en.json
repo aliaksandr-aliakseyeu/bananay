@@ -38,8 +38,8 @@
   },
   "Hero": {
     "badge": "Food distribution network · Greater Sochi MVP",
-    "titleLine1": "One product. One price.",
-    "titleLine2": "Any destination.",
+    "titleLine1": "Food distribution without a distributor.",
+    "titleLine2": "From 1 SKU to any point in Sochi.",
     "cta": "Calculate delivery",
     "ctaHint": "Calculate the cost of delivering 1 item in 30 seconds",
     "subtitle": "Bananay connects producers, importers, drivers, local distribution hubs, couriers and delivery points into one coordinated logistics network with fixed pricing and transparent stages.",
@@ -75,25 +75,40 @@
     "title": "Focus on your product.",
     "titleAccent": "We handle the logistics.",
     "items": [
-      {
-        "title": "No need for your own drivers",
-        "text": "Deliveries are handled by verified network partners — you just create an order."
-      },
-      {
-        "title": "No need for a vehicle fleet",
-        "text": "Transport, routes and loading — that's our responsibility."
-      },
-      {
-        "title": "No need for an in-house logistics manager",
-        "text": "The system automatically assigns orders, builds routes and tracks delivery."
-      }
-    ]
+      "Directly to the retail point with no middlemen",
+      "Maximum shelf presence",
+      "On-time delivery within 18 hours",
+      "100% delivery control and cargo insurance",
+      "Daily updates on pricing and availability in your account"
+    ],
+    "cta": "Order a trial delivery",
+    "form": {
+      "title": "Leave a request for a trial delivery",
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "submit": "Leave a request",
+      "close": "Close",
+      "submitting": "Sending...",
+      "success": "Request sent. We will contact you soon.",
+      "successTitle": "Thank you! Your request has been sent.",
+      "successText": "We will contact you, clarify the details, and arrange a trial delivery.",
+      "error": "Failed to send request. Please try again.",
+      "requiredName": "Please enter your name",
+      "requiredPhone": "Please enter your phone number",
+      "requiredEmail": "Please enter your email",
+      "invalidPhone": "Please enter a valid phone number (+ optional, 7-15 digits)",
+      "invalidEmail": "Please enter a valid email like example@mail.com",
+      "errorNoApi": "Service is temporarily unavailable. Please try later.",
+      "footnote": "No obligations. We will reply and agree on details.",
+      "helpText": "We will contact you, clarify details, and help organize a trial delivery."
+    }
   },
   "MapBlock": {
-    "label": "We deliver your product to any point in the city",
-    "title": "Already delivering to 6000+ points in Sochi",
+    "label": "The more delivery points, the lower the delivery price",
+    "title": "6000+ delivery points in Sochi",
     "subtitle": "Operating daily · real delivery routes",
-    "cta": "Find out delivery cost"
+    "cta": "Find your price"
   },
   "Value": {
     "label": "Why this platform exists",
