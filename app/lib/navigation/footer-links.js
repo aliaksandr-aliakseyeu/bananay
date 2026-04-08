@@ -8,7 +8,7 @@ export function getFooterPlatformItems(t, config) {
     { label: t('platformDrivers'), externalUrl: withFallback(config.appTruckUrl) },
     { label: t('platformHubs'), externalUrl: withFallback(config.appHubUrl) },
     { label: t('platformCouriers'), externalUrl: withFallback(config.appCourierUrl) },
-    { label: t('platformDeliveryPoints'), href: '/under-construction' },
+    { label: t('platformDeliveryPoints'), externalUrl: withFallback(config.appTrackingUrl) },
   ];
 }
 
