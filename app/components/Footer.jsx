@@ -34,7 +34,7 @@ export function Footer() {
     { label: t('platformDrivers'), externalUrl: config.appTruckUrl?.trim() || null },
     { label: t('platformHubs'), externalUrl: config.appHubUrl?.trim() || null },
     { label: t('mobilePlatformCouriers'), externalUrl: config.appCourierUrl?.trim() || null },
-    { label: t('platformDeliveryPoints'), href: '/under-construction' },
+    { label: t('platformDeliveryPoints'), externalUrl: config.appTrackingUrl?.trim() || null },
   ];
   const mobileAppItems = [
     { label: t('appProducer'), href: '/under-construction' },
