@@ -2,6 +2,17 @@ function withFallback(url, locale) {
   return url?.trim() || `/${locale}/under-construction`;
 }
 
+function withLoginPath(url, locale, loginPath = 'login') {
+  const raw = url?.trim();
+  if (!raw) {
+    return `/${locale}/under-construction`;
+  }
+
+  const base = raw.endsWith('/') ? raw.slice(0, -1) : raw;
+  const normalizedPath = loginPath.replace(/^\/+/, '');
+  return `${base}/${locale}/${normalizedPath}`;
+}
+
 export function getHeaderInfoLinks(t) {
   return [
     { label: t('navForWhom'), desc: t('navForWhomDesc'), href: '/for-whom' },
@@ -50,10 +61,25 @@ export function getHeaderPlatformLinks(t, config, locale) {
 
 export function getLoginRoleLinks(t, config, locale) {
   return [
-    { label: t('roles.producer'), href: withFallback(config.appProducerUrl, locale) },
-    { label: t('roles.driver'), href: withFallback(config.appTruckUrl, locale) },
-    { label: t('roles.hub'), href: withFallback(config.appHubUrl, locale) },
-    { label: t('roles.courier'), href: withFallback(config.appCourierUrl, locale) },
-    { label: t('roles.deliveryPoint'), href: withFallback(config.appTrackingUrl, locale) },
+    {
+      label: t('roles.producer'),
+      href: withLoginPath(config.appProducerUrl, locale, 'login'),
+    },
+    {
+      label: t('roles.driver'),
+      href: withLoginPath(config.appTruckUrl, locale, 'login'),
+    },
+    {
+      label: t('roles.hub'),
+      href: withLoginPath(config.appHubUrl, locale, 'dc/login'),
+    },
+    {
+      label: t('roles.courier'),
+      href: withLoginPath(config.appCourierUrl, locale, 'login'),
+    },
+    {
+      label: t('roles.deliveryPoint'),
+      href: withLoginPath(config.appTrackingUrl, locale, 'login'),
+    },
   ];
 }

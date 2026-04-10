@@ -38,8 +38,8 @@ export function LoginDropdown({ t, config, locale }) {
             <a
               key={role.label}
               href={role.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={role.openInNewTab ? '_blank' : undefined}
+              rel={role.openInNewTab ? 'noopener noreferrer' : undefined}
               onClick={close}
               className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-gray-900"
             >
