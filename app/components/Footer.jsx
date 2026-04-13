@@ -18,6 +18,7 @@ export function Footer() {
   const t = useTranslations('Footer');
   const { config } = useConfig();
   const [partnerModalOpen, setPartnerModalOpen] = useState(false);
+  const footerBottomText = '© 2026 Bananay. Built for regional food logistics.';
 
   const platformItems = getFooterPlatformItems(t, config);
   const appItems = getFooterAppItems(t);
@@ -152,10 +153,6 @@ export function Footer() {
               </ul>
             </div>
 
-            <div className="mt-8 border-t border-slate-200 pt-4">
-              <span className="block text-xs text-slate-500">{t('copyright')}</span>
-              <span className="mt-2 block text-xs text-slate-500">{t('bottomTagline')}</span>
-            </div>
           </div>
 
           <div className="hidden gap-8 lg:grid lg:grid-cols-[1.25fr_0.9fr_0.9fr_0.9fr_1fr]">
@@ -180,20 +177,10 @@ export function Footer() {
             <FooterLinkColumn title={t('navTitle')} items={navLinks} />
             <FooterContactsColumn t={t} onOpenPartnership={() => setPartnerModalOpen(true)} />
 
-            <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-slate-200 pt-5 sm:flex-row sm:items-center">
-              <span className="text-xs text-slate-500">{t('copyright')}</span>
-              <span className="flex items-center gap-2 text-xs text-slate-500">
-                <Image
-                  src="/bananay-icon-transparent.png"
-                  alt=""
-                  width={20}
-                  height={20}
-                  className="h-5 w-5 object-contain"
-                  unoptimized
-                />
-                <span>{t('bottomTagline')}</span>
-              </span>
-            </div>
+          </div>
+
+          <div className="mt-6 border-t border-slate-200/80 pt-3 text-xs text-slate-400">
+            <div>{footerBottomText}</div>
           </div>
         </div>
       </footer>
