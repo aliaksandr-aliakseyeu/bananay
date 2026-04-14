@@ -7,9 +7,13 @@ import { Link } from '@/i18n/navigation';
 import { PartnershipModal } from '@/app/components/PartnershipModal';
 import { FooterLinkColumn } from '@/app/components/footer/FooterLinkColumn';
 import { FooterContactsColumn } from '@/app/components/footer/FooterContactsColumn';
+import { FooterMobileSection } from '@/app/components/footer/FooterMobileSection';
 import { useConfig } from '@/app/lib/useConfig';
 import {
   getFooterAppItems,
+  getFooterMobileAboutLinks,
+  getFooterMobileAppItems,
+  getFooterMobilePlatformItems,
   getFooterNavLinks,
   getFooterPlatformItems,
 } from '@/app/lib/navigation/footer-links';
@@ -18,31 +22,14 @@ export function Footer() {
   const t = useTranslations('Footer');
   const { config } = useConfig();
   const [partnerModalOpen, setPartnerModalOpen] = useState(false);
-  const footerBottomText = '© 2026 Bananay. Built for regional food logistics.';
+  const footerBottomText = t('copyright');
 
   const platformItems = getFooterPlatformItems(t, config);
   const appItems = getFooterAppItems(t);
   const navLinks = getFooterNavLinks(t);
-  const mobileAboutLinks = [
-    { href: '/for-whom', label: t('navForWhom') },
-    { href: '/benefits', label: t('navWhyBananay') },
-    { href: '/under-construction', label: t('navWhyPlatform') },
-    { href: '/how-it-works', label: t('navHowItWorks') },
-    { href: '/under-construction', label: t('navAbout') },
-  ];
-  const mobilePlatformItems = [
-    { label: t('platformProducers'), externalUrl: config.appProducerUrl?.trim() || null },
-    { label: t('platformDrivers'), externalUrl: config.appTruckUrl?.trim() || null },
-    { label: t('platformHubs'), externalUrl: config.appHubUrl?.trim() || null },
-    { label: t('mobilePlatformCouriers'), externalUrl: config.appCourierUrl?.trim() || null },
-    { label: t('platformDeliveryPoints'), externalUrl: config.appTrackingUrl?.trim() || null },
-  ];
-  const mobileAppItems = [
-    { label: t('appProducer'), href: '/under-construction' },
-    { label: t('appDriver'), href: '/under-construction' },
-    { label: t('mobileAppHub'), href: '/under-construction' },
-    { label: t('appCourier'), href: '/under-construction' },
-  ];
+  const mobileAboutLinks = getFooterMobileAboutLinks(t);
+  const mobilePlatformItems = getFooterMobilePlatformItems(t, config);
+  const mobileAppItems = getFooterMobileAppItems(t);
 
   const renderFooterItem = (item) => {
     if (item.externalUrl) {
@@ -87,47 +74,9 @@ export function Footer() {
             </div>
 
             <div className="mt-7 space-y-1">
-              <details className="group border-b border-slate-200 py-2">
-                <summary className="flex cursor-pointer list-none items-center justify-between py-1.5 text-lg font-semibold tracking-tight text-slate-900">
-                  <span>{t('platformTitle')}</span>
-                  <svg className="h-5 w-5 text-slate-500 transition group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="m6 9 6 6 6-6" />
-                  </svg>
-                </summary>
-                <ul className="pb-2 pt-2 space-y-2">
-                  {mobilePlatformItems.map((item) => (
-                    <li key={`mobile-platform-${item.label}`}>{renderFooterItem(item)}</li>
-                  ))}
-                </ul>
-              </details>
-
-              <details className="group border-b border-slate-200 py-2">
-                <summary className="flex cursor-pointer list-none items-center justify-between py-1.5 text-lg font-semibold tracking-tight text-slate-900">
-                  <span>{t('appsTitle')}</span>
-                  <svg className="h-5 w-5 text-slate-500 transition group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="m6 9 6 6 6-6" />
-                  </svg>
-                </summary>
-                <ul className="pb-2 pt-2 space-y-2">
-                  {mobileAppItems.map((item) => (
-                    <li key={`mobile-app-${item.label}`}>{renderFooterItem(item)}</li>
-                  ))}
-                </ul>
-              </details>
-
-              <details className="group border-b border-slate-200 py-2">
-                <summary className="flex cursor-pointer list-none items-center justify-between py-1.5 text-lg font-semibold tracking-tight text-slate-900">
-                  <span>{t('mobileAboutTitle')}</span>
-                  <svg className="h-5 w-5 text-slate-500 transition group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="m6 9 6 6 6-6" />
-                  </svg>
-                </summary>
-                <ul className="pb-2 pt-2 space-y-2">
-                  {mobileAboutLinks.map((item) => (
-                    <li key={`mobile-about-${item.label}`}>{renderFooterItem(item)}</li>
-                  ))}
-                </ul>
-              </details>
+              <FooterMobileSection title={t('platformTitle')} items={mobilePlatformItems} renderItem={renderFooterItem} />
+              <FooterMobileSection title={t('appsTitle')} items={mobileAppItems} renderItem={renderFooterItem} />
+              <FooterMobileSection title={t('mobileAboutTitle')} items={mobileAboutLinks} renderItem={renderFooterItem} />
             </div>
 
             <div className="mt-6">
@@ -186,7 +135,11 @@ export function Footer() {
       </footer>
 
       {partnerModalOpen && (
-        <PartnershipModal isOpen={partnerModalOpen} onClose={() => setPartnerModalOpen(false)} />
+        <PartnershipModal
+          isOpen={partnerModalOpen}
+          onClose={() => setPartnerModalOpen(false)}
+          apiUrl={config.apiUrl}
+        />
       )}
     </>
   );

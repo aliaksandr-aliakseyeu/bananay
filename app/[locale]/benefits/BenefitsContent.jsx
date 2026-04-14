@@ -5,6 +5,9 @@ import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { useConfig } from '@/app/lib/useConfig';
 import { PartnershipModal } from '@/app/components/PartnershipModal';
+import { LandingHero } from '@/app/components/landing/LandingHero';
+import { LandingFinalCtaSection } from '@/app/components/landing/LandingFinalCtaSection';
+import { getAppHref } from '@/app/lib/navigation/url-utils';
 
 const primaryBenefitRows = [
   { number: '01', key: 'fixedPrice' },
@@ -27,55 +30,37 @@ export default function BenefitsContent() {
   const { config } = useConfig();
   const t = useTranslations('Benefits');
   const [partnerModalOpen, setPartnerModalOpen] = useState(false);
+  const producerHref = getAppHref(config.appProducerUrl, locale);
 
   return (
-    <div className="min-h-screen bg-[#f6f7f9] text-slate-900">
-      <section className="relative h-[56vh] min-h-[360px] overflow-hidden">
-        <Image
-          src="/hero_benefits.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[68%_10%] md:object-[64%_12%]"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(2,6,23,0.8)_0%,rgba(2,6,23,0.58)_45%,rgba(2,6,23,0.2)_75%,rgba(2,6,23,0)_100%)]" />
-
-        <div className="relative z-10 flex h-full items-center py-8">
-          <div className="mx-auto w-full max-w-7xl px-6">
-            <div className="max-w-[42rem]">
-              <div className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">{t('label')}</div>
-              <h1 className="mt-4 text-3xl font-semibold leading-[1.04] tracking-tight text-white md:text-[3.2rem]">
-                {t('heroTitle')}
-              </h1>
-              <p className="mt-4 max-w-xl text-base leading-7 text-white/90">
-                {t('heroText')}
-              </p>
-              <div className="mt-7 flex flex-wrap items-center gap-5">
-                <a
-                  href={config.appProducerUrl?.trim() || `/${locale}/under-construction`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary-sm"
-                >
-                  {t('heroPrimaryCta')}
-                </a>
-                <a
-                  href={`/${locale}/how-it-works`}
-                  className="text-sm font-semibold text-white/90 underline-offset-4 transition hover:text-white hover:underline"
-                >
-                  {t('heroSecondaryCta')}
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="page-shell bg-[#f6f7f9]">
+      <LandingHero
+        imageSrc="/hero_benefits.png"
+        imageClassName="object-cover object-[68%_10%] md:object-[64%_12%]"
+        overlayClassName="bg-[linear-gradient(to_right,rgba(2,6,23,0.8)_0%,rgba(2,6,23,0.58)_45%,rgba(2,6,23,0.2)_75%,rgba(2,6,23,0)_100%)]"
+        label={t('label')}
+        title={t('heroTitle')}
+        text={t('heroText')}
+        contentClassName="max-w-[42rem]"
+        titleClassName="text-3xl font-semibold leading-[1.04] tracking-tight text-white md:text-[3.2rem]"
+        textClassName="mt-4 max-w-xl text-base leading-7 text-white/90"
+        primaryAction={{
+          href: producerHref,
+          label: t('heroPrimaryCta'),
+          className: 'btn-primary-sm',
+        }}
+        secondaryAction={{
+          href: '/how-it-works',
+          label: t('heroSecondaryCta'),
+          className: 'text-sm font-semibold text-white/90 underline-offset-4 transition hover:text-white hover:underline',
+          internal: true,
+        }}
+      />
 
       <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+        <div className="section-container py-16 md:py-20">
           <div className="max-w-3xl">
-            <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{t('allBenefitsLabel')}</div>
+            <div className="section-eyebrow">{t('allBenefitsLabel')}</div>
             <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
               {t('allBenefitsTitle')}
             </h2>
@@ -105,7 +90,7 @@ export default function BenefitsContent() {
           </div>
 
           <div className="mt-12">
-            <div className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
+            <div className="section-eyebrow mb-4 tracking-[0.18em]">
               {t('supportingBenefitsLabel')}
             </div>
             <div className="border-t border-slate-200">
@@ -145,9 +130,9 @@ export default function BenefitsContent() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="section-container relative z-10">
           <div className="max-w-3xl">
-            <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{t('producerSectionLabel')}</div>
+            <div className="section-eyebrow">{t('producerSectionLabel')}</div>
             <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight md:text-[2.75rem]">
               {t('producerSectionTitle')}
             </h2>
@@ -165,37 +150,29 @@ export default function BenefitsContent() {
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-          <div className="max-w-4xl py-2">
-            <div className="mb-4 text-sm uppercase tracking-[0.2em] text-slate-500">{t('finalCtaLabel')}</div>
-            <h2 className="text-3xl font-semibold leading-tight tracking-tight text-slate-900 md:text-5xl">
-              {t('finalCtaTitle')}
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{t('finalCtaText')}</p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href={config.appProducerUrl?.trim() || `/${locale}/under-construction`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-xl bg-slate-900 px-6 py-3 font-medium text-white"
-              >
-                {t('finalCtaPrimary')}
-              </a>
-              <button
-                type="button"
-                onClick={() => setPartnerModalOpen(true)}
-                className="rounded-xl border border-slate-300 bg-white px-6 py-3 font-medium text-slate-700 transition hover:bg-slate-50"
-              >
-                {t('finalCtaSecondary')}
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <LandingFinalCtaSection
+        label={t('finalCtaLabel')}
+        title={t('finalCtaTitle')}
+        text={t('finalCtaText')}
+        primaryAction={{
+          href: producerHref,
+          label: t('finalCtaPrimary'),
+          className: 'btn-dark',
+        }}
+        secondaryAction={{
+          kind: 'button',
+          onClick: () => setPartnerModalOpen(true),
+          label: t('finalCtaSecondary'),
+          className: 'btn-secondary',
+        }}
+      />
 
       {partnerModalOpen && (
-        <PartnershipModal isOpen={partnerModalOpen} onClose={() => setPartnerModalOpen(false)} />
+        <PartnershipModal
+          isOpen={partnerModalOpen}
+          onClose={() => setPartnerModalOpen(false)}
+          apiUrl={config.apiUrl}
+        />
       )}
     </div>
   );

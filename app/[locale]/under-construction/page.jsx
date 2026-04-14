@@ -23,7 +23,7 @@ export default async function UnderConstructionPage({ params }) {
         <p className="mt-4 text-lg text-slate-600">{t('text')}</p>
         <Link
           href="/"
-          className="mt-8 inline-block rounded-2xl bg-orange-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-orange-950/20"
+          className="btn-primary-sm mt-8 inline-block"
         >
           {t('back')}
         </Link>

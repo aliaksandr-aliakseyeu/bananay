@@ -6,6 +6,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { RegionMapClient } from '@/app/components/RegionMapClient';
 import { TrialDeliveryModal } from '@/app/components/TrialDeliveryModal';
 import { useConfig } from '@/app/lib/useConfig';
+import { getAppHref, getLinkTargetProps } from '@/app/lib/navigation/url-utils';
 
 export default function HomePageContent() {
   const locale = useLocale();
@@ -16,9 +17,10 @@ export default function HomePageContent() {
   const tEconomics = useTranslations('Economics');
   const tMapBlock = useTranslations('MapBlock');
   const economicsItems = tEconomics.raw('items');
+  const producerHref = getAppHref(config.appProducerUrl, locale);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="page-shell bg-white">
       <section id="who-we-are" className="relative flex min-h-[75vh] items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -39,9 +41,8 @@ export default function HomePageContent() {
           </h1>
           <div className="mt-10 flex flex-col items-center gap-3">
             <a
-              href={config.appProducerUrl?.trim() || `/${locale}/under-construction`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={producerHref}
+              {...getLinkTargetProps(producerHref)}
               className="btn-primary inline-flex min-w-[19rem] items-center justify-center"
             >
               {tHero('cta')}
@@ -51,7 +52,7 @@ export default function HomePageContent() {
       </section>
 
       <section id="map" className="bg-white py-[4rem]">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="section-container">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
             <div className="max-w-xl">
               <h2 className="section-heading max-w-lg">
@@ -61,9 +62,8 @@ export default function HomePageContent() {
               <p className="mt-1 max-w-md text-base leading-7 text-slate-500">{tMapBlock('subtitle')}</p>
               <div className="mt-10 flex justify-start">
                 <a
-                  href={config.appProducerUrl?.trim() || `/${locale}/under-construction`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={producerHref}
+                  {...getLinkTargetProps(producerHref)}
                   className="btn-primary"
                 >
                   {tMapBlock('cta')}
@@ -94,7 +94,7 @@ export default function HomePageContent() {
             />
           </div>
         </div>
-        <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="section-container relative z-10">
           <div className="mb-8 max-w-2xl">
             <h2 className="section-heading">
               <span className="block">{tEconomics('title')}</span>
@@ -128,7 +128,7 @@ export default function HomePageContent() {
       </section>
 
       <section id="quick-start" className="bg-white py-[4rem]">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="section-container">
           <div className="mb-12">
             <h2 className="section-heading">
               {tQuickStart('title')}
@@ -156,7 +156,7 @@ export default function HomePageContent() {
         isOpen={trialModalOpen}
         onClose={() => setTrialModalOpen(false)}
         apiUrl={config.apiUrl}
-        tEconomics={tEconomics}
+        tForm={tEconomics}
       />
 
     </div>

@@ -1,17 +1,4 @@
-function withFallback(url, locale) {
-  return url?.trim() || `/${locale}/under-construction`;
-}
-
-function withLoginPath(url, locale, loginPath = 'login') {
-  const raw = url?.trim();
-  if (!raw) {
-    return `/${locale}/under-construction`;
-  }
-
-  const base = raw.endsWith('/') ? raw.slice(0, -1) : raw;
-  const normalizedPath = loginPath.replace(/^\/+/, '');
-  return `${base}/${locale}/${normalizedPath}`;
-}
+import { getAppHref, getLoginHref } from '@/app/lib/navigation/url-utils';
 
 export function getHeaderInfoLinks(t) {
   return [
@@ -29,31 +16,31 @@ export function getHeaderPlatformLinks(t, config, locale) {
     {
       label: t('navProducer'),
       desc: t('navProducerDesc'),
-      href: withFallback(config.appProducerUrl, locale),
+      href: getAppHref(config.appProducerUrl, locale),
       dot: 'bg-orange-500',
     },
     {
       label: t('navDriver'),
       desc: t('navDriverDesc'),
-      href: withFallback(config.appTruckUrl, locale),
+      href: getAppHref(config.appTruckUrl, locale),
       dot: 'bg-emerald-500',
     },
     {
       label: t('navHub'),
       desc: t('navHubDesc'),
-      href: withFallback(config.appHubUrl, locale),
+      href: getAppHref(config.appHubUrl, locale),
       dot: 'bg-violet-500',
     },
     {
       label: t('navCourier'),
       desc: t('navCourierDesc'),
-      href: withFallback(config.appCourierUrl, locale),
+      href: getAppHref(config.appCourierUrl, locale),
       dot: 'bg-blue-500',
     },
     {
       label: t('navDeliveryPoint'),
       desc: t('navDeliveryPointDesc'),
-      href: withFallback(config.appTrackingUrl, locale),
+      href: getAppHref(config.appTrackingUrl, locale),
       dot: 'bg-slate-600',
     },
   ];
@@ -63,23 +50,23 @@ export function getLoginRoleLinks(t, config, locale) {
   return [
     {
       label: t('roles.producer'),
-      href: withLoginPath(config.appProducerUrl, locale, 'login'),
+      href: getLoginHref(config.appProducerUrl, locale, 'login'),
     },
     {
       label: t('roles.driver'),
-      href: withLoginPath(config.appTruckUrl, locale, 'login'),
+      href: getLoginHref(config.appTruckUrl, locale, 'login'),
     },
     {
       label: t('roles.hub'),
-      href: withLoginPath(config.appHubUrl, locale, 'dc/login'),
+      href: getLoginHref(config.appHubUrl, locale, 'dc/login'),
     },
     {
       label: t('roles.courier'),
-      href: withLoginPath(config.appCourierUrl, locale, 'login'),
+      href: getLoginHref(config.appCourierUrl, locale, 'login'),
     },
     {
       label: t('roles.deliveryPoint'),
-      href: withLoginPath(config.appTrackingUrl, locale, 'login'),
+      href: getLoginHref(config.appTrackingUrl, locale, 'login'),
     },
   ];
 }

@@ -1,3 +1,5 @@
+import { getAppHref as getAppLinkHref } from '@/app/lib/navigation/url-utils';
+
 export const APP_CARD_ORDER = ['producer', 'truck', 'hub', 'courier', 'tracking'];
 
 const APP_CARD_ACCENTS = {
@@ -38,5 +40,5 @@ export function getAppCardAccent(key) {
 export function getAppHref(key, config, locale) {
   const field = APP_URL_FIELDS[key];
   const url = field ? config[field] : '';
-  return url?.trim() ? url : `/${locale}/under-construction`;
+  return getAppLinkHref(url, locale);
 }
