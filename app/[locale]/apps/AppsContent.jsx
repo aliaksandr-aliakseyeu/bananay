@@ -12,11 +12,11 @@ export default function AppsContent() {
   const t = useTranslations('Apps');
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="page-shell bg-white">
       <section className="bg-slate-50 py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="section-container">
           <div className="max-w-3xl">
-            <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{t('label')}</div>
+            <div className="section-eyebrow">{t('label')}</div>
             <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">{t('title')}</h1>
             <p className="mt-5 text-lg leading-8 text-slate-600">{t('text')}</p>
           </div>

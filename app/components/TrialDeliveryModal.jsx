@@ -2,7 +2,7 @@
 
 import { useTrialDeliveryForm } from '@/app/hooks/useTrialDeliveryForm';
 
-export function TrialDeliveryModal({ isOpen, onClose, apiUrl, tEconomics }) {
+export function TrialDeliveryModal({ isOpen, onClose, apiUrl, tForm }) {
   const {
     form,
     fieldErrors,
@@ -13,7 +13,7 @@ export function TrialDeliveryModal({ isOpen, onClose, apiUrl, tEconomics }) {
     resetForm,
   } = useTrialDeliveryForm({
     apiUrl,
-    t: tEconomics,
+    t: tForm,
   });
 
   const handleClose = () => {
@@ -37,30 +37,30 @@ export function TrialDeliveryModal({ isOpen, onClose, apiUrl, tEconomics }) {
         {submitState === 'success' ? (
           <div className="flex flex-col gap-4">
             <h3 className="text-2xl font-semibold tracking-tight text-slate-900">
-              {tEconomics('form.successTitle')}
+              {tForm('form.successTitle')}
             </h3>
-            <p className="text-base leading-7 text-slate-600">{tEconomics('form.successText')}</p>
+            <p className="text-base leading-7 text-slate-600">{tForm('form.successText')}</p>
             <button
               type="button"
               onClick={handleClose}
               className="mt-2 self-start rounded-lg bg-orange-500 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-600"
             >
-              {tEconomics('form.close')}
+              {tForm('form.close')}
             </button>
           </div>
         ) : (
           <>
             <div className="mb-5">
               <h3 className="text-2xl font-semibold tracking-tight text-slate-900">
-                {tEconomics('form.title')}
+                {tForm('form.title')}
               </h3>
             </div>
-            <p className="mb-5 text-base leading-7 text-slate-600">{tEconomics('form.helpText')}</p>
+            <p className="mb-5 text-base leading-7 text-slate-600">{tForm('form.helpText')}</p>
             <form noValidate onSubmit={onSubmit} className="flex flex-col gap-3">
               <input
                 type="text"
                 name="name"
-                placeholder={tEconomics('form.name')}
+                placeholder={tForm('form.name')}
                 value={form.name}
                 onChange={onInputChange}
                 className="rounded-xl border border-slate-300 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
@@ -69,7 +69,7 @@ export function TrialDeliveryModal({ isOpen, onClose, apiUrl, tEconomics }) {
               <input
                 type="tel"
                 name="phone"
-                placeholder={tEconomics('form.phone')}
+                placeholder={tForm('form.phone')}
                 value={form.phone}
                 onChange={onInputChange}
                 className="rounded-xl border border-slate-300 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
@@ -80,7 +80,7 @@ export function TrialDeliveryModal({ isOpen, onClose, apiUrl, tEconomics }) {
               <input
                 type="text"
                 name="email"
-                placeholder={tEconomics('form.email')}
+                placeholder={tForm('form.email')}
                 value={form.email}
                 onChange={onInputChange}
                 className="rounded-xl border border-slate-300 px-4 py-3 text-base text-slate-900 outline-none transition focus:border-orange-400 focus:ring-2 focus:ring-orange-200"
@@ -94,10 +94,10 @@ export function TrialDeliveryModal({ isOpen, onClose, apiUrl, tEconomics }) {
                 className="mt-1 self-start rounded-lg bg-orange-500 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-600 disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {submitState === 'submitting'
-                  ? tEconomics('form.submitting')
-                  : tEconomics('form.submit')}
+                  ? tForm('form.submitting')
+                  : tForm('form.submit')}
               </button>
-              <p className="text-[11px] leading-4 text-slate-400">{tEconomics('form.footnote')}</p>
+              <p className="text-[11px] leading-4 text-slate-400">{tForm('form.footnote')}</p>
               {submitState === 'error' && (
                 <p className="text-sm font-medium text-red-600">{submitError}</p>
               )}

@@ -26,8 +26,7 @@ export function Header() {
   return (
     <header
       ref={containerRef}
-      className="sticky top-0 z-[9999] w-full bg-slate-50"
-      style={{ boxShadow: '0 1px 0 #e5e7eb' }}
+      className="sticky top-0 z-[9999] w-full border-b border-slate-200 bg-slate-50"
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-5">

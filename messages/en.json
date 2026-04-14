@@ -345,6 +345,7 @@
     "close": "Close",
     "formTitle": "One form for all roles",
     "formIntro": "This form is for everyone — hubs, drivers, couriers, logistics partners or anyone interested in supporting the Bananay network.",
+    "helpText": "Fill out the form and we'll get back to you when we're ready to discuss onboarding or partnership details.",
     "name": "Full name",
     "phone": "Phone number",
     "email": "Email (optional)",
@@ -352,7 +353,18 @@
     "participate": "How do you want to participate? (courier, hub, driver, logistics partner...)",
     "details": "Tell us briefly about your vehicle, facility, route, company or partnership interest",
     "send": "Send request",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "submitting": "Sending...",
+    "successTitle": "Thanks! Your request has been sent.",
+    "successText": "We'll reach out and discuss how you can join the Bananay network.",
+    "error": "We couldn't send your request. Please try again later.",
+    "errorNoApi": "The service is temporarily unavailable. Please try again later.",
+    "requiredName": "Please enter your name",
+    "requiredPhone": "Please enter your phone number",
+    "requiredCity": "Please enter your city or region",
+    "requiredParticipate": "Please describe how you want to participate",
+    "invalidPhone": "Please enter a valid phone number (with or without +, 7-15 digits)",
+    "invalidEmail": "Please enter a valid email in the format example@mail.com"
   },
   "UnderConstruction": {
     "title": "Under construction",

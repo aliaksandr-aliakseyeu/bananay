@@ -1,6 +1,7 @@
 'use client';
 
 import { Link } from '@/i18n/navigation';
+import { getLinkTargetProps } from '@/app/lib/navigation/url-utils';
 
 export function MegaMenuPanel({ infoLinks, platformLinks, t, onClose }) {
   return (
@@ -40,8 +41,7 @@ export function MegaMenuPanel({ infoLinks, platformLinks, t, onClose }) {
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    {...getLinkTargetProps(item.href)}
                     onClick={onClose}
                     className="group flex items-start gap-3"
                   >
