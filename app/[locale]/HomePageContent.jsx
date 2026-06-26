@@ -12,6 +12,7 @@ export default function HomePageContent() {
   const locale = useLocale();
   const { config } = useConfig();
   const [trialModalOpen, setTrialModalOpen] = useState(false);
+  const [pointsCount, setPointsCount] = useState(null);
   const tHero = useTranslations('Hero');
   const tQuickStart = useTranslations('QuickStart');
   const tEconomics = useTranslations('Economics');
@@ -56,7 +57,9 @@ export default function HomePageContent() {
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
             <div className="max-w-xl">
               <h2 className="section-heading max-w-lg">
-                {tMapBlock('title')}
+                {pointsCount != null && pointsCount > 0
+                  ? tMapBlock('titleWithCount', { count: pointsCount })
+                  : tMapBlock('title')}
               </h2>
               <p className="mt-4 max-w-lg text-xl leading-8 text-slate-700">{tMapBlock('label')}</p>
               <p className="mt-1 max-w-md text-base leading-7 text-slate-500">{tMapBlock('subtitle')}</p>
@@ -72,7 +75,12 @@ export default function HomePageContent() {
             </div>
 
             <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-3 shadow-sm">
-              <RegionMapClient height="420px" className="h-full w-full rounded-[1.4rem]" apiUrl={config.apiUrl} />
+              <RegionMapClient
+                height="420px"
+                className="h-full w-full rounded-[1.4rem]"
+                apiUrl={config.apiUrl}
+                onPointsCountChange={setPointsCount}
+              />
             </div>
           </div>
         </div>

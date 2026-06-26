@@ -12,6 +12,13 @@ const RegionMapInner = dynamic(() => import('./RegionMapInner'), {
 }
 );
 
-export function RegionMapClient({ height = '100%', className = '', apiUrl = '' }) {
-  return <RegionMapInner height={height} className={className} apiUrl={apiUrl} />;
+export function RegionMapClient({ height = '100%', className = '', apiUrl = '', onPointsCountChange }) {
+  return (
+    <RegionMapInner
+      height={height}
+      className={className}
+      apiUrl={apiUrl}
+      onPointsCountChange={onPointsCountChange}
+    />
+  );
 }

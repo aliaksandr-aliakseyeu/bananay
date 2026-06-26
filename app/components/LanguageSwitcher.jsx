@@ -3,9 +3,9 @@
 import { useTransition } from 'react';
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { useLocale } from 'next-intl';
-import { routing } from '@/i18n/routing';
+import { visibleLocales } from '@/i18n/routing';
 
-const localeNames = { en: 'EN', ru: 'RU' };
+const localeNames = { en: 'EN', ka: 'KA' };
 
 export function LanguageSwitcher() {
   const router = useRouter();
@@ -21,7 +21,7 @@ export function LanguageSwitcher() {
 
   return (
     <div className="flex items-center gap-1 rounded-md border border-gray-200 p-1">
-      {routing.locales.map((locale) => (
+      {visibleLocales.map((locale) => (
         <button
           key={locale}
           type="button"

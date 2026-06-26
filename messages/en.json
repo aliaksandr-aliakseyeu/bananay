@@ -37,9 +37,9 @@
     }
   },
   "Hero": {
-    "badge": "Food distribution network · Greater Sochi MVP",
+    "badge": "Food distribution network · Batumi MVP",
     "titleLine1": "Food distribution without a distributor.",
-    "titleLine2": "From 1 SKU to any point in Sochi.",
+    "titleLine2": "From 1 SKU to any point in Batumi.",
     "cta": "Calculate delivery",
     "ctaHint": "Calculate the cost of delivering 1 item in 30 seconds",
     "subtitle": "Bananay connects producers, importers, drivers, local distribution hubs, couriers and delivery points into one coordinated logistics network with fixed pricing and transparent stages.",
@@ -49,7 +49,7 @@
     "promiseHead": "From 1 unit per destination with fixed price and no address limits.",
     "promiseText": "For stores, cafés, restaurants and other B2B customers across the city.",
     "regionTitle": "Launch region",
-    "regionHead": "Currently active: Greater Sochi",
+    "regionHead": "Currently active: Batumi",
     "regionText": "Map and active delivery points are shown below on the landing page."
   },
   "QuickStart": {
@@ -106,7 +106,8 @@
   },
   "MapBlock": {
     "label": "The more delivery points, the lower the delivery price",
-    "title": "6000+ delivery points in Sochi",
+    "title": "Delivery points in Batumi",
+    "titleWithCount": "{count} delivery points in Batumi",
     "subtitle": "Operating daily · real delivery routes",
     "cta": "Find your price"
   },
@@ -282,9 +283,9 @@
   },
   "Region": {
     "label": "Available delivery points",
-    "title": "Map and delivery geography in Greater Sochi.",
+    "title": "Map and delivery geography in Batumi.",
     "text": "We are building the first network here. The MVP has a concrete geographical anchor.",
-    "pointsCount": "More than 6,000 delivery points.",
+    "pointsCount": "{count} delivery points.",
     "openProducerApp": "Open producer app and calculate cost of one delivery unit"
   },
   "CTA": {
@@ -326,7 +327,7 @@
     "contactsTitle": "Contacts",
     "email": "hello@bananay.pro",
     "phone": "+7 918 384 2676",
-    "location": "Sochi / Poland",
+    "location": "Batumi, Georgia",
     "partnership": "Discuss partnership",
     "copyright": "© 2026 Bananay. Built for regional food logistics.",
     "bottomTagline": "Bananay Regional distribution infrastructure."
