@@ -4,7 +4,7 @@ import { getLocale } from 'next-intl/server';
 export const metadata = {
   title: 'Bananay — One network for modern supply distribution',
   description:
-    'Bananay connects producers, truck drivers, distribution hubs, couriers and delivery points into one coordinated delivery network across Greater Sochi.',
+    'Bananay connects producers, truck drivers, distribution hubs, couriers and delivery points into one coordinated delivery network across Batumi.',
   icons: {
     icon: '/bananay-icon-transparent.png',
     apple: '/bananay-icon-transparent.png',

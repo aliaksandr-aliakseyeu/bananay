@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { MapContainer, TileLayer, Marker, Popup, AttributionControl } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import L from 'leaflet';
@@ -9,6 +9,9 @@ import 'leaflet/dist/leaflet.css';
 import 'react-leaflet-cluster/dist/assets/MarkerCluster.css';
 import 'react-leaflet-cluster/dist/assets/MarkerCluster.Default.css';
 import { getDeliveryPoints } from '@/app/lib/api';
+import { DEFAULT_MAP_LAT, DEFAULT_MAP_LNG } from '@/app/lib/constants';
+
+const MAP_CENTER = [DEFAULT_MAP_LAT, DEFAULT_MAP_LNG];
 
 if (typeof window !== 'undefined') {
   delete L.Icon.Default.prototype._getIconUrl;
@@ -18,8 +21,6 @@ if (typeof window !== 'undefined') {
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
   });
 }
-
-const SOCHI_CENTER = [43.585472, 39.723098];
 
 const deliveryPointIcon = new L.DivIcon({
   className: 'custom-marker',
@@ -69,8 +70,14 @@ function createClusterCustomIcon(cluster) {
   });
 }
 
-export default function RegionMapInner({ height = '100%', className = '', apiUrl = '' }) {
+export default function RegionMapInner({
+  height = '100%',
+  className = '',
+  apiUrl = '',
+  onPointsCountChange,
+}) {
   const t = useTranslations('Map');
+  const locale = useLocale();
   const [points, setPoints] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -81,16 +88,19 @@ export default function RegionMapInner({ height = '100%', className = '', apiUrl
       setLoading(false);
       return;
     }
-    getDeliveryPoints(apiUrl)
+    setLoading(true);
+    setError(null);
+    getDeliveryPoints(apiUrl, locale)
       .then((list) => {
         const active = (list || []).filter(
           (p) => p.is_active && p.location?.coordinates?.length === 2
         );
         setPoints(active);
+        onPointsCountChange?.(active.length);
       })
       .catch(() => setError(true))
       .finally(() => setLoading(false));
-  }, [apiUrl]);
+  }, [apiUrl, locale, onPointsCountChange]);
 
   if (loading) {
     return (
@@ -117,8 +127,8 @@ export default function RegionMapInner({ height = '100%', className = '', apiUrl
   return (
     <div className={`relative overflow-hidden rounded-[1.25rem] ${className}`} style={{ height }}>
       <MapContainer
-        center={SOCHI_CENTER}
-        zoom={12}
+        center={MAP_CENTER}
+        zoom={13}
         style={{ height: '100%', width: '100%' }}
         scrollWheelZoom={true}
         attributionControl={false}
