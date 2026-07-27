@@ -11,7 +11,14 @@ export function FooterContactsColumn({ t, onOpenPartnership }) {
           </a>
         </li>
         <li>
-          <span className="text-slate-500">{t('phone')}</span>
+          <a
+            href={`https://t.me/${t('telegram').replace(/^@/, '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-slate-900"
+          >
+            {t('telegram')}
+          </a>
         </li>
         <li>
           <button
