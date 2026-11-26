@@ -11,10 +11,10 @@ import { getAppHref } from '@/app/lib/navigation/url-utils';
 
 const processStepKeys = ['step1', 'step2', 'step3', 'step4'];
 const processStepImages = {
-  step1: '/step-1.png',
-  step2: '/step-2.png',
-  step3: '/step-3.png',
-  step4: '/step-4.png',
+  step1: '/step-1.webp',
+  step2: '/step-2.webp',
+  step3: '/step-3.webp',
+  step4: '/step-4.webp',
 };
 
 export default function HowItWorksContent() {
@@ -27,7 +27,7 @@ export default function HowItWorksContent() {
   return (
     <div className="page-shell bg-[#f6f7f9]">
       <LandingHero
-        imageSrc="/hero_how.png"
+        imageSrc="/hero_how.webp"
         imageClassName="object-cover object-[center_32%]"
         overlayClassName="bg-[linear-gradient(to_right,rgba(2,6,23,0.72)_0%,rgba(2,6,23,0.5)_42%,rgba(2,6,23,0.18)_72%,rgba(2,6,23,0)_100%)]"
         label={t('label')}

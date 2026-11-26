@@ -35,7 +35,7 @@ export default function BenefitsContent() {
   return (
     <div className="page-shell bg-[#f6f7f9]">
       <LandingHero
-        imageSrc="/hero_benefits.png"
+        imageSrc="/hero_benefits.webp"
         imageClassName="object-cover object-[68%_10%] md:object-[64%_12%]"
         overlayClassName="bg-[linear-gradient(to_right,rgba(2,6,23,0.8)_0%,rgba(2,6,23,0.58)_45%,rgba(2,6,23,0.2)_75%,rgba(2,6,23,0)_100%)]"
         label={t('label')}
@@ -117,7 +117,7 @@ export default function BenefitsContent() {
         <div className="absolute inset-0">
           <div className="absolute bottom-0 left-1/2 top-0 w-full max-w-7xl -translate-x-1/2 overflow-hidden px-6">
             <Image
-              src="/distrbution-benefits.png"
+              src="/distrbution-benefits.webp"
               alt=""
               fill
               sizes="(max-width: 1280px) 100vw, 1280px"

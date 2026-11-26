@@ -26,7 +26,7 @@ export default function ForWhomContent() {
       gets: t('role1Gets'),
       href: getAppHref(config.appProducerUrl, locale),
       cta: t('role1Cta'),
-      image: '/producer.png',
+      image: '/producer.webp',
       reverse: false,
     },
     {
@@ -38,7 +38,7 @@ export default function ForWhomContent() {
       gets: t('role2Gets'),
       href: getAppHref(config.appTruckUrl, locale),
       cta: t('role2Cta'),
-      image: '/driver.png',
+      image: '/driver.webp',
       reverse: true,
     },
     {
@@ -50,7 +50,7 @@ export default function ForWhomContent() {
       gets: t('role3Gets'),
       href: getAppHref(config.appHubUrl, locale),
       cta: t('role3Cta'),
-      image: '/dc.png',
+      image: '/dc.webp',
       reverse: false,
     },
     {
@@ -62,7 +62,7 @@ export default function ForWhomContent() {
       gets: t('role4Gets'),
       href: getAppHref(config.appCourierUrl, locale),
       cta: t('role4Cta'),
-      image: '/courier.png',
+      image: '/courier.webp',
       reverse: true,
     },
   ];
@@ -70,7 +70,7 @@ export default function ForWhomContent() {
   return (
     <div className="page-shell bg-[#f6f7f9]">
       <LandingHero
-        imageSrc="/hero_for_whom.png"
+        imageSrc="/hero_for_whom.webp"
         imageClassName="object-cover object-[center_18%]"
         overlayClassName="bg-[linear-gradient(to_right,rgba(2,6,23,0.72)_0%,rgba(2,6,23,0.5)_42%,rgba(2,6,23,0.18)_72%,rgba(2,6,23,0)_100%)]"
         label={t('label')}
