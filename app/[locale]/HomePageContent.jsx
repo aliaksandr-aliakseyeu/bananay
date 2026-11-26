@@ -25,7 +25,7 @@ export default function HomePageContent() {
       <section id="who-we-are" className="relative flex min-h-[75vh] items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/hero_bg.png"
+            src="/hero_bg.webp"
             alt="Local logistics and delivery operations"
             fill
             className="object-cover object-[50%_35%]"
@@ -90,7 +90,7 @@ export default function HomePageContent() {
         <div className="absolute inset-0">
           <div className="absolute bottom-0 left-1/2 top-0 w-full max-w-7xl -translate-x-1/2 overflow-hidden px-6">
             <Image
-              src="/img1.png"
+              src="/img1.webp"
               alt=""
               fill
               className="object-cover object-right translate-x-[120px]"
