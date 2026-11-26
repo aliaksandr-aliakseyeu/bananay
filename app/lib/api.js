@@ -11,7 +11,7 @@ let deliveryPointsCache = { cacheKey: null, promise: null };
 /**
  * Fetch delivery points for the Batumi launch region.
  * Result is cached per apiBase + lang so locale switch refetches schedule text.
- * @param {string} [apiBase] - Base URL of calc API (from /api/config).
+ * @param {string} [apiBase] - Base URL of calc API (NEXT_PUBLIC_API_URL).
  * @param {string} [locale='en'] - UI locale used for schedule_i18n resolution.
  */
 export async function getDeliveryPoints(apiBase = '', locale = 'en') {
