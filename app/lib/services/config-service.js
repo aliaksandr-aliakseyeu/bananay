@@ -7,8 +7,6 @@ const DEFAULT_CONFIG = {
   appTrackingUrl: '',
 };
 
-let configPromise = null;
-
 function normalizeConfig(config = {}) {
   return {
     ...DEFAULT_CONFIG,
@@ -21,25 +19,19 @@ function normalizeConfig(config = {}) {
   };
 }
 
+/** Build-time public config (NEXT_PUBLIC_* from .env / Docker ARG). */
+export function getPublicConfig() {
+  return normalizeConfig({
+    apiUrl: process.env.NEXT_PUBLIC_API_URL || '',
+    appProducerUrl: process.env.NEXT_PUBLIC_APP_PRODUCER_URL || '',
+    appTruckUrl: process.env.NEXT_PUBLIC_APP_TRUCK_URL || '',
+    appHubUrl: process.env.NEXT_PUBLIC_APP_HUB_URL || '',
+    appCourierUrl: process.env.NEXT_PUBLIC_APP_COURIER_URL || '',
+    appTrackingUrl: process.env.NEXT_PUBLIC_APP_TRACKING_URL || '',
+  });
+}
+
+/** @deprecated Use getPublicConfig() */
 export function getDefaultConfig() {
-  return DEFAULT_CONFIG;
-}
-
-export async function fetchRuntimeConfig() {
-  const response = await fetch('/api/config');
-  if (!response.ok) {
-    throw new Error('Failed to load runtime config');
-  }
-  const data = await response.json();
-  return normalizeConfig(data);
-}
-
-export function loadRuntimeConfig() {
-  if (!configPromise) {
-    configPromise = fetchRuntimeConfig().catch((error) => {
-      configPromise = null;
-      throw error;
-    });
-  }
-  return configPromise;
+  return getPublicConfig();
 }
